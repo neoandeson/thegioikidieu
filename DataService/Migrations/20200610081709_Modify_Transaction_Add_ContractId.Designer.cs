@@ -4,14 +4,16 @@ using DataService.Models;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace DataService.Migrations
 {
     [DbContext(typeof(DisneyDB))]
-    partial class DisneyDBModelSnapshot : ModelSnapshot
+    [Migration("20200610081709_Modify_Transaction_Add_ContractId")]
+    partial class Modify_Transaction_Add_ContractId
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

@@ -24,8 +24,8 @@ namespace DataService.Services.TransactionService
                 Transaction transaction = rq.MapToEntity();
                 if(transaction != null)
                 {
-                    _dbContext.Transactions.AddAsync(transaction);
-                    _dbContext.SaveChangesAsync();
+                    _dbContext.Transactions.Add(transaction);
+                    _dbContext.SaveChanges();
 
                     rs.ResponseCode = ResponseCode.Success;
                 }

@@ -15,6 +15,7 @@ namespace DataService.DTOs.TransactionDTO
         public string ContactNumber { get; set; }
         public int Status { get; set; }
         public string Description { get; set; }
+        public int ContractId { get; set; }
 
         public Transaction MapToEntity()
         {
@@ -31,6 +32,7 @@ namespace DataService.DTOs.TransactionDTO
                 originModel.ContactNumber = this.ContactNumber;
                 originModel.Status = this.Status;
                 originModel.Description = this.Description;
+                originModel.ContractId = this.ContractId;
             }
             return originModel;
         }

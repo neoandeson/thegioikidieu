@@ -8,6 +8,10 @@ namespace DataService.Models
     //nuget Microsoft.EntityFrameworkCore
     public class DisneyDB : DbContext
     {
+        public DisneyDB()
+        {
+        }
+
         public DisneyDB(DbContextOptions<DisneyDB> options) : base(options)
         {
         }
@@ -19,7 +23,7 @@ namespace DataService.Models
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             //nuget Microsoft.EntityFrameworkCore.SqlServer
-            //optionsBuilder.UseSqlServer("server=.;database=Disney;trusted_connection=true;");
+            optionsBuilder.UseSqlServer("server=.;database=Disney;trusted_connection=true;");
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
