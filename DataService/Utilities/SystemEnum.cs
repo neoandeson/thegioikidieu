@@ -6,6 +6,13 @@ namespace DataService.Utilities
 {
     public static class SystemEnum
     {
+        public static class RecordStatus
+        {
+            public static int Active = 1;
+            public static int Deactive = 0;
+            public static int Deleted = -1;
+        }
+
         public static class ResponseCode
         {
             public static int Success = 200;

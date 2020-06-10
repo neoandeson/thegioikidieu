@@ -6,11 +6,11 @@ using static DataService.Utilities.SystemEnum;
 
 namespace DataService.Services.ContractService
 {
-    public class CreateTransactionService : IAsyncBaseService<Contract_Rq, Contract_Rs>
+    public class CreateContractService : IAsyncBaseService<Contract_Rq, Contract_Rs>
     {
         private DisneyDB _dbContext;
 
-        public CreateTransactionService(DisneyDB dbContext)
+        public CreateContractService(DisneyDB dbContext)
         {
             _dbContext = dbContext;
         }

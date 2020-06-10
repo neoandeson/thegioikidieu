@@ -21,6 +21,8 @@ namespace DataService.DTOs.TransactionDTO
             Transaction originModel = null;
             if (this != null)
             {
+                originModel = new Transaction();
+
                 originModel.Id = this.Id;
                 originModel.Time = this.Time;
                 originModel.Type = this.Type;

@@ -6,7 +6,7 @@ using static DataService.Utilities.SystemEnum;
 
 namespace DataService.Services.TransactionService
 {
-    public class CreateTransactionService : IAsyncBaseService<Transaction_Rq, Transaction_Rs>
+    public class CreateTransactionService : IBaseService<Transaction_Rq, Transaction_Rs>
     {
         private DisneyDB _dbContext;
 
@@ -15,7 +15,7 @@ namespace DataService.Services.TransactionService
             _dbContext = dbContext;
         }
 
-        public async Task<Transaction_Rs> Execute(Transaction_Rq rq)
+        public Transaction_Rs Execute(Transaction_Rq rq)
         {
             Transaction_Rs rs = new Transaction_Rs();
 
@@ -24,8 +24,8 @@ namespace DataService.Services.TransactionService
                 Transaction transaction = rq.MapToEntity();
                 if(transaction != null)
                 {
-                    await _dbContext.Transactions.AddAsync(transaction);
-                    await _dbContext.SaveChangesAsync();
+                    _dbContext.Transactions.AddAsync(transaction);
+                    _dbContext.SaveChangesAsync();
 
                     rs.ResponseCode = ResponseCode.Success;
                 }

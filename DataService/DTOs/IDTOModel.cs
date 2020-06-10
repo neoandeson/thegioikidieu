@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-using static DataService.Utilities.SystemEnum;
-
+﻿
 namespace DataService.DTOs
 {
     public interface IRequestModel<DTO, Entity>

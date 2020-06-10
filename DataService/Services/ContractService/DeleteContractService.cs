@@ -7,11 +7,11 @@ using static DataService.Utilities.SystemEnum;
 
 namespace DataService.Services.ContractService
 {
-    public class DeleteTransactionService : IBaseService<int, Contract_Rs>
+    public class DeleteContractService : IBaseService<int, Contract_Rs>
     {
         private DisneyDB _dbContext;
 
-        public DeleteTransactionService(DisneyDB dbContext)
+        public DeleteContractService(DisneyDB dbContext)
         {
             _dbContext = dbContext;
         }
@@ -26,6 +26,7 @@ namespace DataService.Services.ContractService
                 if(contract != null)
                 {
                     _dbContext.Remove(contract);
+                    _dbContext.SaveChanges();
 
                     rs.ResponseCode = ResponseCode.Success;
                 }

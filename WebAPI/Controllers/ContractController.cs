@@ -10,8 +10,8 @@ using DataService.Services.ContractService;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
     [ApiController]
+    [Route("[controller]/[action]")]
     public class ContractController : ControllerBase
     {
         private readonly DisneyDB _dbContext;
@@ -21,10 +21,38 @@ namespace WebAPI.Controllers
             _dbContext = dbContext;
         }
 
+        [HttpPost]
+        public IActionResult List(ContractList_Rq rq)
+        {
+            ListContractService contractService = new ListContractService(_dbContext);
+            ContractList_Rs rs = contractService.Execute(rq);
+
+            return Ok(rs);
+        }
+
+        [HttpPost]
         public async Task<IActionResult> Create(Contract_Rq rq)
         {
-            CreateTransactionService contractService = new CreateTransactionService(_dbContext);
+            CreateContractService contractService = new CreateContractService(_dbContext);
             Contract_Rs rs = await contractService.Execute(rq);
+
+            return Ok(rs.ResponseCode);
+        }
+
+        [HttpPost]
+        public IActionResult Update(Contract_Rq rq)
+        {
+            UpdateContractService contractService = new UpdateContractService(_dbContext);
+            Contract_Rs rs = contractService.Execute(rq);
+
+            return Ok(rs.ResponseCode);
+        }
+
+        [HttpPut]
+        public IActionResult Delete (int id)
+        {
+            DeleteContractService contractService = new DeleteContractService(_dbContext);
+            Contract_Rs rs = contractService.Execute(id);
 
             return Ok(rs.ResponseCode);
         }

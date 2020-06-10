@@ -27,6 +27,8 @@ namespace DataService.DTOs.ContractDTO
             Contract originModel = null;
             if (this != null)
             {
+                originModel = new Contract();
+
                 originModel.Id = this.Id;
                 originModel.Revenue = this.Revenue;
                 originModel.PackageName = this.PackageName;

@@ -9,11 +9,11 @@ using static DataService.Utilities.SystemEnum;
 
 namespace DataService.Services.ContractService
 {
-    public class UpdateTransactionService : IBaseService<Contract_Rq, Contract_Rs>
+    public class UpdateContractService : IBaseService<Contract_Rq, Contract_Rs>
     {
         private DisneyDB _dbContext;
 
-        public UpdateTransactionService(DisneyDB dbContext)
+        public UpdateContractService(DisneyDB dbContext)
         {
             _dbContext = dbContext;
         }
