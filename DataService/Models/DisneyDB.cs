@@ -37,6 +37,11 @@ namespace DataService.Models
                 .Property(b => b.RecordStatus)
                 .HasDefaultValue(1);
             //1: active, -1: delete, 0 deactive
+
+            modelBuilder.Entity<User>()
+                .Property(b => b.Role)
+                .HasDefaultValue("user");
+            //1: user, 2: admin
         }
 
         //Microsoft.EntityFrameworkCore.Tools
